@@ -5,16 +5,17 @@ Welcome to the File Sharing Platform documentation! This guide will help you und
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-  - [Installation](#installation)
-  - [Authentication](#authentication)
-- [Usage](#usage)
-  - [Uploading Files](#uploading-files)
-  - [Viewing Files](#viewing-files)
-  - [Downloading Files](#downloading-files)
-  - [Sharing Files](#sharing-files)
-- [Teck Stack Used](#tech-stack-used)
-- [Contributor](#contributor)
+- Getting Started
+  - Installation
+  - Authentication
+- Usage
+  - Uploading Files
+  - Viewing Files
+  - Downloading Files
+  - Sharing Files
+- Tech Stack Used
+- Contributor
+
 
 
 ## Getting Started
@@ -178,7 +179,7 @@ By following these steps, you can easily delete files from the platform and remo
 
 The project utilizes the following technologies:
 
-- **Backend**: Java Spring Boot with Maven dependency management.
+- **Backend**: Java Spring Boot with Maven dependency management and JPA Repository.
 - **Frontend**: React.js.
 - **Database**: PostgreSQL.
 - **Hosting**: The website is hosted on Render.
