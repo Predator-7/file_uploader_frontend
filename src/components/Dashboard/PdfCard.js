@@ -30,6 +30,15 @@ const style = {
  
 
 const PdfCard = ({onDelete, onDownload, fileName, onCopyLink}) => {
+    const fileType = fileName.split(".").splice(-1)[0] ; 
+    let image_link = "" ;
+    if (fileType == "pdf") {
+        image_link = "https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg"
+    } else if (fileType == "jpeg" || fileType == "jpg") {
+        image_link = "https://images.freeimages.com/fic/images/icons/2711/free_icons_for_windows8_metro/512/jpg.png"
+    }else if (fileType == "txt") {
+        image_link = "https://cdn-icons-png.flaticon.com/512/104/104647.png" ;
+    }
     return (
         <Card sx={{ maxWidth: 250    }}>
          
@@ -37,7 +46,7 @@ const PdfCard = ({onDelete, onDownload, fileName, onCopyLink}) => {
                 <CardMedia
                     component="img"
                     height="140"
-                    image={"https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg"}
+                    image={image_link}
                     alt="green iguana"
                 />
                 <CardContent>
