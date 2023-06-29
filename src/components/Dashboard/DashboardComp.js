@@ -170,7 +170,7 @@ const DashboardComp = () => {
                 console.error("Error deleting PDF:", error);
             });
     };
-    const handleDownloadCallback = (fileId) => {
+    const handleDownloadCallback = (fileId, fileName) => {
         // axios
         //     .get(API_ENDPOINTS.download + `${fileId}`)
         //     .then((response) => {
@@ -183,6 +183,7 @@ const DashboardComp = () => {
         //         toast("Unable to download");
         //         console.error("Error download PDF:", error);
         //     });
+        // console.log(fileName.split(".").slice(-1)[0]) ;
         axios({
             url: API_ENDPOINTS.download + `${fileId}`,
             method: 'GET',
@@ -190,11 +191,12 @@ const DashboardComp = () => {
         })
             .then(response => {
                 // Create a download link and trigger the download
-                const downloadFileName = response.headers['content-disposition'].split('filename=')[1];
+                const downloadFileName = response.headers['content-disposition'];
+                console.log("FILE NAME ", downloadFileName) ;
                 const downloadUrl = URL.createObjectURL(response.data);
                 const a = document.createElement('a');
                 a.href = downloadUrl;
-                a.download = downloadFileName; // Set the desired file name and extension
+                a.download = fileName; // Set the desired file name and extension
                 a.click();
                 URL.revokeObjectURL(downloadUrl);
             })
@@ -231,7 +233,7 @@ const DashboardComp = () => {
                                     return (
                                         <PdfCard
                                             onDelete={() => handleDeleteCallback(item.fileId, currentUser.id)}
-                                            onDownload={() => handleDownloadCallback(item.fileId)}
+                                            onDownload={() => handleDownloadCallback(item.fileId, item.fileName)}
                                             fileName={item.fileName}
                                             onCopyLink={() => handleCopyLinkCallback(item.fileId)}
                                         >

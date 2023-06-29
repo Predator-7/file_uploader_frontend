@@ -37,7 +37,7 @@ const PdfCard = ({onDelete, onDownload, fileName, onCopyLink}) => {
                 <CardMedia
                     component="img"
                     height="140"
-                    image={require("C:/Users/anshg/OneDrive/Documents/forntend/farcart/src/assets/download.png")}
+                    image={"https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg"}
                     alt="green iguana"
                 />
                 <CardContent>
