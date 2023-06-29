@@ -13,13 +13,9 @@ Welcome to the File Sharing Platform documentation! This guide will help you und
   - [Viewing Files](#viewing-files)
   - [Downloading Files](#downloading-files)
   - [Sharing Files](#sharing-files)
-- [Contributing](#contributing)
-  - [Bug Reports](#bug-reports)
-  - [Feature Requests](#feature-requests)
-  - [Pull Requests](#pull-requests)
-- [Troubleshooting](#troubleshooting)
-- [FAQ](#faq)
-- [License](#license)
+- [Teck Stack Used](#tech-stack-used)
+- [Contributor](#contributor)
+
 
 ## Getting Started
 
@@ -31,7 +27,46 @@ To run the File Sharing Platform on local machine, follow these instructions:
 
 ## Running the Project
 
-Follow these steps to run the Front end code:
+### Follow these steps to run the Back end code:
+
+
+1. **Clone the Repository**: Clone the project repository to your local machine:
+
+   ```shell
+   git clone https://github.com/Predator-7/File_Uploader
+
+2. **Set Up PostgreSQL Database**: Install and set up PostgreSQL on your machine.
+
+3. **Configure Database Connection**: Open the project in your preferred IDE or text editor. Locate the application.properties file in the src/main/resources 
+   directory and update the database connection details:
+   
+    ```shell
+   spring.datasource.url=jdbc:postgresql://localhost:5432/your-database-name
+   spring.datasource.username=your-username
+   spring.datasource.password=your-password
+    
+4. **First time setup**: If you are running the backend for the first time modify the application.properties file in the src/main/resources 
+   directory and update the database connection details:
+   
+    ```shell
+   spring.jpa.hibernate.ddl-auto = create
+
+5. **Build the Project**: Open a terminal or command prompt in the project's root directory and run the following command to build the project:
+   
+   ```shell
+   ./mvnw clean install
+
+7. **Run the Project**: Once the build is successful, start the Spring Boot application with the following command:
+   
+    ```shell
+   ./mvnw spring-boot:run
+
+8. **Access the Application**: Open a web browser and navigate to http://localhost:8080 to access the running Spring Boot application.
+
+**Note**: Make sure to have your PostgreSQL server running during the execution of the application.
+   
+
+### Follow these steps to run the Front end code:
 
 1. **Clone the Repository**: Clone the project repository to your local machine:
 
@@ -139,7 +174,7 @@ To delete files from the platform, follow these steps:
 
 By following these steps, you can easily delete files from the platform and remove them from your dashboard.
 
-## Tech Stack
+## Tech Stack Used
 
 The project utilizes the following technologies:
 
@@ -148,8 +183,17 @@ The project utilizes the following technologies:
 - **Database**: PostgreSQL.
 - **Hosting**: The website is hosted on Render.
 
-By leveraging this tech stack, the project combines the robustness of Java Spring Boot on the backend, the dynamic user interface provided by React.js on the frontend, and the reliable data storage of PostgreSQL. The website is then hosted on the Render platform, ensuring accessibility and availability to users.
 
-## Contributing
+## Links
 
-We welcome contributions from the community to enhance
+- **Website**: The website is hosted at [https://file-uploader-frontend.onrender.com/](https://file-uploader-frontend.onrender.com/)
+
+By visiting the provided link, you can access the hosted website and explore its features.
+
+
+## Contributor
+
+- **Name**: Ansh Garewal
+- **Email**: anshgarewal7@gmail.com
+
+Feel free to reach out to the contributor for any questions or contributions related to the project.
