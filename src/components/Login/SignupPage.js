@@ -50,38 +50,35 @@ const SignupPage = () => {
     const createUser = async () => {
         try {
             const payload = {
-                userName: name,
-                email: email,
-                password: password,
+              userName: name,
+              email: email,
+              password: password,
             };
             const header = {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*", // Allow requests from all origins
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*", // Allow requests from all origins
             };
-            const response = await axios.post(
-                API_ENDPOINTS.signup,
-                payload,
-                { headers: header }
-            );
-            if (response.status == 200) {
-                console.log("User Created Successfully");
-                // console.log(response.data) ;
-                setUserData(response.data) ;
-                navigate("/dashboard");
-            }
-        } catch (error) {
+            const response = await axios.post(API_ENDPOINTS.signup, payload, { headers: header });
+          
+            if (response.status === 200) {
+              console.log("User Created Successfully");
+              setUserData(response.data);
+              navigate("/dashboard");
+            } 
+          } catch (error) {
             console.error(error);
-            toast.error("Invalid Credentials", {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
+            toast.error(error.response.data.message, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
             });
-        }
+          }
+          
     };
     const handleSignUpClick = (event) => {
         event.preventDefault();

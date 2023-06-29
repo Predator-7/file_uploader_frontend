@@ -38,7 +38,7 @@ const LoginComp = () => {
             }
         } catch (error) {
             console.error(error);
-            toast.error("Invalid Credentials", {
+            toast.error(error.response.data.message, {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,

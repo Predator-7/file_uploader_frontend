@@ -18,7 +18,7 @@ const Navigation = () => {
                 userData && userData["id"] ? (
                     <DashboardComp />
                 ) : (
-                    navigate("/")
+                    ()=>navigate("/")
                 )
             }
         />

@@ -53,7 +53,7 @@ const UploadModal = ({ onUpload }) => {
             })
             .catch((error) => {
                 // handle errors
-                toast.warn("Unable to upload file", {
+                toast.warn(error.response.data.message, {
                     position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
