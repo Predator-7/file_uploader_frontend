@@ -6,28 +6,23 @@ import SignupPage from "./Login/SignupPage";
 import DashboardComp from "./Dashboard/DashboardComp";
 import PdfViewer from "./PdfViewer/PdfViewer";
 const Navigation = () => {
-    const [userData, setUserData] = useContext(UserContext);
+    const [userData, setUserData] = useContext(UserContext) ;
     const navigate = useNavigate();
     return (
-        <Routes>
-            <Route path="/" element={<LoginComp />} />
-            <Route path="/signup" element={<SignupPage />} />
-            <Route
-                path="/dashboard"
-                element={
-                    userData && userData["id"] ? (
-                        <DashboardComp />
-                    ) : (
-                        // () => {
-                        //     console.log('jahsflajks');
-                        //     return navigate("/", {replace: true});
-                        // }
-                        <Navigate to='/' replace={true} />
-                        // <LoginComp/>
-                    )
-                }
-            />
-            <Route path="/pdfviewer" element={<PdfViewer />} />
-        </Routes>);
+    <Routes>
+        <Route path="/" element={<LoginComp />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route
+            path="/dashboard"
+            element={
+                userData && userData["id"] ? (
+                    <DashboardComp />
+                ) : (
+                    <Navigate  to='/' replace />
+                )
+            }
+        />
+        <Route path="/pdfviewer" element={<PdfViewer />} />
+    </Routes>);
 };
 export default Navigation;
