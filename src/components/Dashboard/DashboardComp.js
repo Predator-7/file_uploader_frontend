@@ -30,13 +30,13 @@ const UploadModal = ({ onUpload }) => {
 
     const handleClose = () => setOpen(false);
     const [file, setFile] = useState();
-    const [fileName, setFileName] = useState("");
+
     const handleFileUpload = async () => {
         console.log(currentUser)
         const formData = new FormData();
         formData.append("file", file);
         formData.append("senderId", currentUser.id);
-        formData.append("fileName", fileName)
+
         await axios
             .post(API_ENDPOINTS.upload, formData, {
                 headers: {
@@ -91,7 +91,7 @@ const UploadModal = ({ onUpload }) => {
                         p: 4,
                     }}
                 >
-
+                    <Box sx={{display: 'flex'}}>
                     <Typography id="modal-modal-description">
                         <input
                             className="block w-full text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50  focus:outline-none "
@@ -103,18 +103,6 @@ const UploadModal = ({ onUpload }) => {
                         />
                     </Typography>
 
-                    <Typography className="flex justify-between">
-                        <label>File Name : </label>
-
-                        <input
-                            className="block text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50  focus:outline-none "
-                            id="file_name"
-                            onChange={(event) =>
-                                setFileName(event.target.value)
-                            }
-                            type="text"
-                        />
-                    </Typography>
                     <Typography>
                         <Button
                             onClick={(event) => {
@@ -126,6 +114,7 @@ const UploadModal = ({ onUpload }) => {
                             <FileUploadIcon /> Submit
                         </Button>
                     </Typography>
+                    </Box>
                 </Box>
             </Modal>
         </div>
